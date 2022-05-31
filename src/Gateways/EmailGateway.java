@@ -1,32 +1,32 @@
 package Gateways;
 
-import Messages.DailyNewsEmailMessage;
-import Messages.GradesAnnouncementEmailMessage;
-import Messages.TaskAddedEmailMessage;
+import Messages.DailynewsEmail;
+import Messages.GradesEmail;
+import Messages.TaskEmail;
 
-public class EmailGateway {
+public class EmailGateway implements Gateway{
 	
 	public void sendMessage(Object message, String user) {
 		String[] placeHolders = new String[] {}; // set some place holders here 
 		
-		if(message instanceof DailyNewsEmailMessage) {
-			DailyNewsEmailMessage dailyNewsEmailMessage = (DailyNewsEmailMessage) message;
+		if(message instanceof DailynewsEmail) {
+			DailynewsEmail dailyNewsEmailMessage = (DailynewsEmail) message;
 			
 			dailyNewsEmailMessage.prepareMessage(placeHolders);
 			
 			// some code to send message
 		}
 		
-		else if(message instanceof GradesAnnouncementEmailMessage) {
-			GradesAnnouncementEmailMessage announcementEmailMessage = (GradesAnnouncementEmailMessage) message;
+		else if(message instanceof GradesEmail) {
+			GradesEmail announcementEmailMessage = (GradesEmail) message;
 			
 			announcementEmailMessage.prepareMessage(placeHolders);
 			
 			// some code to send message
 		}
 		
-		else if(message instanceof TaskAddedEmailMessage) {
-			TaskAddedEmailMessage addedEmailMessage = (TaskAddedEmailMessage) message;
+		else if(message instanceof TaskEmail) {
+			TaskEmail addedEmailMessage = (TaskEmail) message;
 			
 			addedEmailMessage.prepareMessage(placeHolders);
 			
